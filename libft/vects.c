@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-char *vect2str(t_vect *vect)
+char	*vect2str(t_vect *vect)
 {
 	char *s;
-	
+
 	if (vect == NULL)
 		return (NULL);
 	s = ft_strnew(vect->ctsize);
@@ -24,7 +24,7 @@ char *vect2str(t_vect *vect)
 	return (s);
 }
 
-t_vect *str2vect(t_vect *vect, char const *s)
+t_vect	*str2vect(t_vect *vect, char const *s)
 {
 	if (vect == NULL)
 		vect = vect_new();

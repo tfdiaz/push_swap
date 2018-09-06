@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-t_stack *new_stack(int data)
+t_stack	*new_stack(int data)
 {
-	t_stack *nstack;
+	t_stack	*nstack;
 
 	nstack = (t_stack *)malloc(sizeof(t_stack));
 	if (!nstack)
@@ -89,40 +89,4 @@ void	revrot_stack(t_stack **top)
 	if ((*top) == NULL)
 		return ;
 	(*top) = (*top)->up;
-}
-
-void	free_stack(t_stack **top)
-{
-	void	*prt;
-	t_stack *tmp;
-
-	if (*top == NULL)
-		return ;
-	prt = (*top);
-	while ((*top)->down != prt)
-	{
-		tmp = (*top);
-		(*top) = (*top)->down;
-		free(tmp);
-	}
-	free(*top);
-	(*top) = NULL;
-}
-
-int countstacks(t_stack *st)
-{
-	void	*prt;
-	int		i;
-
-	i = 0;
-	if (st == NULL)
-		return (i);
-	prt = st->up;
-	while (st != prt)
-	{
-		i++;
-		st = st->down;
-	}
-	i++;
-	return (i);
 }

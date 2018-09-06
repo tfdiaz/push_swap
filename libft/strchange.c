@@ -38,7 +38,7 @@ char	*ft_strtrim(char const *s)
 	return (ret);
 }
 
-int	ft_tolower(int c)
+int		ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 		return ('a' + (c - 'A'));

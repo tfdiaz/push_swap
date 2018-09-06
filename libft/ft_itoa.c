@@ -45,7 +45,7 @@ char			*ft_itoa(int n)
 	return (s);
 }
 
-void	posputnbr(uintmax_t n)
+void			posputnbr(uintmax_t n)
 {
 	uintmax_t digit;
 

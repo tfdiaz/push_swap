@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int		issort(t_stack *a, t_stack *b)
 {
@@ -28,51 +28,6 @@ int		issort(t_stack *a, t_stack *b)
 		if (a->data > a->down->data)
 			flag = 0;
 		a = a->down;
-	}
-	return (flag);
-}
-
-int		nissort(t_stack *a, t_stack *b, int n)
-{
-	int		flag;
-	int		i;
-
-	flag = 1;
-	i = 0;
-	if (!a)
-		return (-1);
-	if (b)
-		flag = 0;
-	while (i < n)
-	{
-		if (a->data > a->down->data)
-			flag = 0;
-		a = a->down;
-		i++;
-	}
-	return (flag);
-}
-
-int		nrevissort(t_stack *a, t_stack *b, int n)
-{
-	int		flag;
-	int		i;
-
-	flag = 1;
-	i = 0;
-	if (!a)
-		return (-1);
-	if (b)
-		flag = 0;
-	n--;
-	if (n > countstacks(a))
-		n = countstacks(a);
-	while (i < n)
-	{
-		if (a->data < a->down->data)
-			flag = 0;
-		a = a->down;
-		i++;
 	}
 	return (flag);
 }
@@ -97,25 +52,34 @@ int		revissort(t_stack *a, t_stack *b)
 	return (flag);
 }
 
-void	prt_stack(t_stack *top)
+int		nrevissort(t_stack *a, t_stack *b, int n)
 {
-	void *prt;
+	int	flag;
+	int	i;
 
-	if (!top)
-		return ;
-	prt = top;
-	while (top->down != prt)
+	flag = 1;
+	i = 0;
+	if (!a)
+		return (-1);
+	if (b)
+		flag = 0;
+	n--;
+	if (n > countstacks(a))
+		n = countstacks(a);
+	while (i < n)
 	{
-		ft_printf("%i\n", top->data);
-		top = top->down;
+		if (a->data < a->down->data)
+			flag = 0;
+		a = a->down;
+		i++;
 	}
-	ft_printf("%i\n", top->data);
+	return (flag);
 }
 
 void	free_arr(void **arr, int size)
 {
-	int i;
-	
+	int	i;
+
 	i = -1;
 	if (arr == NULL)
 		return ;
@@ -125,7 +89,7 @@ void	free_arr(void **arr, int size)
 	arr = NULL;
 }
 
-int	strlenarr(char **s)
+int		strlenarr(char **s)
 {
 	int i;
 

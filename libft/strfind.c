@@ -41,6 +41,7 @@ char		*ft_strstr(const char *haystack, const char *needle)
 	}
 	return (NULL);
 }
+
 char		*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	i;
@@ -62,7 +63,7 @@ char		*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	return (NULL);
 }
 
-char	*ft_strchr(const char *s, int c)
+char		*ft_strchr(const char *s, int c)
 {
 	int	i;
 
@@ -78,7 +79,7 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strrchr(const char *s, int c)
+char		*ft_strrchr(const char *s, int c)
 {
 	int	i;
 

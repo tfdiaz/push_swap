@@ -10,17 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int		errorck(char **s, int size)
 {
-	int i;
+	int		i;
+	char	*tmp;
 
 	i = 0;
 	while (i < size)
 	{
-		if (ft_strcmp(ft_itoa(ft_atoi(s[i])), s[i]) != 0)
+		tmp = ft_itoa(ft_atoi(s[i]));
+		if (ft_strcmp(tmp, s[i]) != 0)
+		{
+			free(tmp);
 			return (0);
+		}
+		free(tmp);
 		i++;
 	}
 	return (1);
@@ -55,7 +61,7 @@ int		*arrbuild(char **s, int size)
 	i = 0;
 	if (errorck(s, size) == 0)
 		return (NULL);
-	if(!(arr = (int *)malloc(sizeof(int) * size)))
+	if (!(arr = (int *)malloc(sizeof(int) * size)))
 		return (NULL);
 	i = size;
 	j = -1;
@@ -71,13 +77,13 @@ int		*arrbuild(char **s, int size)
 
 void	makestack(t_stack **top, int *arr, int size)
 {
-	int 	i;
+	int		i;
 	t_stack	*tmp;
 
 	i = -1;
 	while (++i < size)
 	{
-		if((tmp = new_stack(arr[i])) != NULL)
+		if ((tmp = new_stack(arr[i])) != NULL)
 			push_stack(top, &tmp);
 	}
 }

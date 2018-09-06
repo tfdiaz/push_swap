@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	swapint(int *arr, int first, int second)
 {
@@ -30,7 +30,6 @@ void	maxheap(int *arr, int size, int i)
 	root = i;
 	left = i * 2 + 1;
 	right = i * 2 + 2;
-
 	if (left < size && arr[left] > arr[root])
 		root = left;
 	if (right < size && arr[right] > arr[root])

@@ -14,17 +14,41 @@ NAME1 = checker
 
 NAME2 = push_swap
 
-NAME3 = colormap
+NAME3 = visualizer
 
 CC = @gcc
 
 FLAGS = -Wall -Wextra -Werror -o
 
-SRC1 = stackops.c checker.c builder.c uts.c
+SRC1 = 	chckr/raps.c \
+	chckr/checker.c \
+	shared/stackops.c \
+	shared/stackops2.c \
+	shared/builder.c \
+	shared/uts.c \
+	shared/heap.c
 
-SRC2 = push_swap.c heap.c builder.c stackops.c uts.c
+SRC2 = algo/push_swap.c \
+	algo/sort34.c \
+	algo/algosort.c \
+	algo/stackandprint.c \
+	shared/heap.c \
+	shared/builder.c \
+	shared/stackops.c \
+	shared/stackops2.c \
+	shared/uts.c \
+	shared/ranktools.c
 
-SRC3 = colors.c
+SRC3 = visual/colors.c \
+	visual/setcolor.c \
+	visual/controlcol.c \
+	chckr/raps.c \
+	shared/heap.c \
+	shared/builder.c \
+	shared/stackops.c \
+	shared/stackops2.c \
+	shared/uts.c \
+	shared/ranktools.c \
 
 OBJ1 = $(SRC1:.c=.o)
 
@@ -50,26 +74,20 @@ $(NAME3): $(OBJ3) $(LIB)
 $(LIB):
 	@cd $(LIBDIR) && make 
 
-.PHONY: all clean fclean re both debug
-
-debug1: $(OBJ1) $(LIB)
-	$(CC) -o debugger1 -g $(SRC1) $(LIB)
-
-debug2: $(OBJ2) $(LIB)
-	$(CC) -o debugger2 -g $(SRC2) $(LIB)
+.PHONY: all clean fclean re both
 
 clean:
 	@rm -f $(OBJ1)
 	@rm -f $(OBJ2)
+	@rm -f $(OBJ3)
 	@cd $(LIBDIR) && make clean
 
 fclean: clean
 	@rm -f $(NAME1)
 	@rm -f $(NAME2)
-	@rm -r debugger1
-	@rm -r debugger2
-	@rm -rf debugger1.dSYM
-	@rm -rf debugger2.dSYM
-	@cd $(PRINTDIR) && make fclean
+	@rm -f $(NAME3)
+	@cd $(LIBDIR) && make fclean
 
-all: $(NAME)
+all: both
+
+re: fclean all

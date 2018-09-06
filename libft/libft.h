@@ -106,7 +106,8 @@ void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_vect			*vect_new();
-t_vect			*vect_add(t_vect *vect, const void *content, size_t content_size);
+t_vect			*vect_add(t_vect *vect, const void *content,
+				size_t content_size);
 void			vect_free(t_vect **vect);
 t_vect			*str2vect(t_vect *vect, char const *s);
 char			*vect2str(t_vect *vect);
